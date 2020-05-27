@@ -1,0 +1,20 @@
+---
+name: dat ip cho loobpack
+  hosts: all 
+  tasks:
+    - name: Set loopback IPv4 address 
+      ios_l3_interface: 
+        name: loobpack {{ item.loobpack_h }}  
+        ipv4: 10.0.{{ item.IPv4 }}.1/24
+        state: present
+      with_item:
+        - { loobpack_h: 1, IPv4: "1" }
+        - { loobpack_h: 2, IPv4: "2" }
+        - { loobpack: 3, IPv4: "3" }
+name: Show ip
+      ios_command: # Viết lệnh để gửi ở mode command line của router
+        commands:
+          - show ip int brief
+      register: show_ip # gắn kết quả vào biến show_ip
+
+    - debug: var=show_ip.stdout_lines         
