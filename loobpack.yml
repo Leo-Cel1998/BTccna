@@ -1,6 +1,7 @@
 ---
 name: dat ip cho loobpack
   hosts: all 
+  
   tasks:
     - name: Set loopback IPv4 address 
       ios_l3_interface: 
