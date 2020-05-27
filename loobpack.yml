@@ -12,10 +12,4 @@
         - { loobpack_h: 1, IPv4: 1 }
         - { loobpack_h: 2, IPv4: 2 }
         - { loobpack_h: 3, IPv4: 3 }
-  name: Show ip
-      ios_command: # Viết lệnh để gửi ở mode command line của router
-        commands:
-          - show ip int brief
-      register: show_ip # gắn kết quả vào biến show_ip
-
-    - debug: var=show_ip.stdout_lines         
+ 
